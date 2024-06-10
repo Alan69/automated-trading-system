@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="mt-4">
+    <h1>Available Crypto Assets</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Tradable</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asset in assets %}
+            <tr>
+                <td>{{ asset.symbol }}</td>
+                <td>{{ asset.name }}</td>
+                <td>{{ asset.status }}</td>
+                <td>{{ asset.tradable }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

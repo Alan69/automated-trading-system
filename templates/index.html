@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron mt-4">
+    <h1 class="display-4">Automated Trading System</h1>
+    <p class="lead">Use the form below to create a new trade order.</p>
+    <form action="{{ url_for('create_trade') }}" method="POST">
+        <div class="form-group">
+            <label for="symbol">Symbol</label>
+            <input type="text" class="form-control" id="symbol" name="symbol" required>
+        </div>
+        <div class="form-group">
+            <label for="qty">Quantity</label>
+            <input type="number" class="form-control" id="qty" name="qty" step="0.0001" required>
+        </div>
+        <div class="form-group">
+            <label for="side">Side</label>
+            <select class="form-control" id="side" name="side">
+                <option value="buy">Buy</option>
+                <option value="sell">Sell</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="type">Order Type</label>
+            <select class="form-control" id="type" name="type">
+                <option value="market">Market</option>
+                <option value="limit">Limit</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="time_in_force">Time in Force</label>
+            <select class="form-control" id="time_in_force" name="time_in_force">
+                <option value="gtc">Good Till Canceled</option>
+                <option value="day">Day</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Trade</button>
+    </form>
+</div>
+{% endblock %}
